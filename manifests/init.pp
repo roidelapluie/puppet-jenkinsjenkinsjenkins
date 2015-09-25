@@ -1,9 +1,9 @@
-class jenkinsjenkinsjenkins {
+class jenkinsjenkinsjenkins ($jenkins_proxy) {
   include apache
   apache::vhost { 'jenkinsjenkinsjenkins.example.com':
-    port          => '80',
-    docroot       => '/var/www/jenkinsjenkinsjenkins',
-    docroot_owner => 'www-data',
-    docroot_group => 'www-data',
+    port           => '8808',
+    docroot        => '/srv/www/jenkinsjenkinsjenkins',
+    manage_docroot => false,
+    proxy_pass     => $jenkins_proxy,
   }
 }
